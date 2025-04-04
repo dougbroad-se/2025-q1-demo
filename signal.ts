@@ -42,13 +42,12 @@ function effect(fn: () => void) {
   Listener = null;
 }
 
+// Demo time
+const count = signal(0);
 effect(() => {
   const value = count();
   console.log('eff', value);
 });
-
-// Demo time
-const count = signal(0);
 const double = computed(() => count() * 2);
 const eff = effect(() => console.log('effect', count()));
 console.log('count', count(), double());
